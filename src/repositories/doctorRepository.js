@@ -21,6 +21,21 @@ export const doctorRepository = {
     }).populate("user", "name email");
   },
 
+  findApprovedDirectory() {
+    return Doctor.find({
+      isApproved: true,
+      isBlocked: false,
+    })
+      .sort({ isOnline: -1, createdAt: -1 })
+      .populate("user", "name email");
+  },
+
+  findAll() {
+    return Doctor.find({})
+      .sort({ createdAt: -1 })
+      .populate("user", "name email role isBlocked");
+  },
+
   updateById(id, payload) {
     return Doctor.findByIdAndUpdate(id, payload, { new: true }).populate(
       "user",

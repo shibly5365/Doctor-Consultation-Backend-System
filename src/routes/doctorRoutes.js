@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getDoctorDirectory,
   getOnlineDoctors,
   setAvailability,
 } from "../controllers/doctorController.js";
@@ -9,6 +10,7 @@ import { validateAvailabilityPayload } from "../middleware/validateMiddleware.js
 
 const router = express.Router();
 
+router.get("/", protect, getDoctorDirectory);
 router.get("/online", protect, getOnlineDoctors);
 router.patch(
   "/availability",

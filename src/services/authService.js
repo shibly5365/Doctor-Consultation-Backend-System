@@ -122,6 +122,10 @@ export const authService = {
       throw new AppError("Doctor is blocked by admin", 403);
     }
 
+    if (!doctor.isApproved) {
+      throw new AppError("Doctor profile is pending admin approval", 403);
+    }
+
     const token = generateToken({ id: user._id, role: user.role });
     return { token, user: sanitizeUser(user), doctor };
   },

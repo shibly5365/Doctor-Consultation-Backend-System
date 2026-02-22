@@ -45,3 +45,21 @@ export const getTransactions = asyncHandler(async (req, res) => {
       data: transactions,
     });
 });
+
+export const getDoctors = asyncHandler(async (req, res) => {
+  const doctors = await adminService.getDoctors();
+  res.status(200).json({
+    success: true,
+    message: "Doctors fetched",
+    data: doctors,
+  });
+});
+
+export const getUsers = asyncHandler(async (req, res) => {
+  const users = await adminService.getUsers();
+  res.status(200).json({
+    success: true,
+    message: "Users fetched",
+    data: users,
+  });
+});

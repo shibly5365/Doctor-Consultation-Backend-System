@@ -15,3 +15,10 @@ export const getOnlineDoctors = asyncHandler(async (req, res) => {
     .status(200)
     .json({ success: true, message: "Online doctors fetched", data: doctors });
 });
+
+export const getDoctorDirectory = asyncHandler(async (req, res) => {
+  const doctors = await doctorService.getDoctorDirectory();
+  res
+    .status(200)
+    .json({ success: true, message: "Doctors fetched", data: doctors });
+});

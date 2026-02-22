@@ -33,4 +33,8 @@ export const doctorService = {
   async getOnlineDoctors() {
     return doctorRepository.findApprovedOnline();
   },
+
+  async getDoctorDirectory() {
+    return doctorRepository.findApprovedDirectory();
+  },
 };

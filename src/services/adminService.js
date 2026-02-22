@@ -45,4 +45,12 @@ export const adminService = {
   async getTransactions() {
     return transactionRepository.findAll();
   },
+
+  async getDoctors() {
+    return doctorRepository.findAll();
+  },
+
+  async getUsers() {
+    return userRepository.findByRole("user");
+  },
 };

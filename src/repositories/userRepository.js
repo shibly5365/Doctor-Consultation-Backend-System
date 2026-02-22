@@ -16,4 +16,10 @@ export const userRepository = {
   updateById(id, payload) {
     return User.findByIdAndUpdate(id, payload, { new: true });
   },
+
+  findByRole(role) {
+    return User.find({ role })
+      .sort({ createdAt: -1 })
+      .select("-password");
+  },
 };

@@ -84,6 +84,7 @@ scripts/
 
 - User registration/login
 - Doctor registration/login
+- Doctor login allowed only after admin approval
 - Admin login
 - JWT token issue + verify
 - Password hashing with bcrypt
@@ -123,6 +124,8 @@ scripts/
 - Approve/unapprove doctor
 - Block/unblock doctor
 - Block/unblock user
+- List all doctors
+- List all users
 - View all transactions
 
 ## 7. Data Models
@@ -175,6 +178,8 @@ Bookings:
 
 Admin:
 
+- `GET /admin/doctors`
+- `GET /admin/users`
 - `PATCH /admin/doctors/:doctorId/approve`
 - `PATCH /admin/doctors/:doctorId/block`
 - `PATCH /admin/users/:userId/block`
